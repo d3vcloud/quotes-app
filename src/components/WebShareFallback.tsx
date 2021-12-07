@@ -24,14 +24,13 @@ const WebShareFallback = ({ onHide, quote }: Props) => {
         </button>
       </header>
       <div className='targets'>
-        <a className='social whatsapp'>
+        <a className='social whatsapp' href={ `https://wa.me/?text=${encodeURIComponent(quote)} `} target='_blank'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='32'
             height='32'
             viewBox='0 0 24 24'
-            style={{ fill: 'rgba(255, 255, 255, 1)' }}
-          >
+            style={{ fill: 'rgba(255, 255, 255, 1)' }}>
             <path
               fillRule='evenodd'
               clipRule='evenodd'
@@ -39,14 +38,16 @@ const WebShareFallback = ({ onHide, quote }: Props) => {
             ></path>
           </svg>
         </a>
-        <a className='social email'>
+        <a className='social email' 
+          href={ `mailto:example@mail.com?subject=Enjoy it!&body=${encodeURIComponent(quote)} `} 
+          target='_blank' 
+          rel='noopener noreferrer'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='32'
             height='32'
             viewBox='0 0 24 24'
-            style={{ fill: 'rgba(255, 255, 255, 1)' }}
-          >
+            style={{ fill: 'rgba(255, 255, 255, 1)' }}>
             <path d='M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z'></path>
           </svg>
         </a>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { copyTextToClipboard } from '../utils';
 import './styles.css';
 
@@ -7,6 +8,14 @@ type Props = {
 };
 
 const WebShareFallback = ({ onHide, quote }: Props) => {
+
+  const [isCopied, setIsCopied] = useState<boolean>(false);
+
+  const copyToClipboard = () => {
+    copyTextToClipboard(quote);
+    setIsCopied(true);
+  }
+
   return (
     <div className='share-dialog'>
       <header>
@@ -56,7 +65,7 @@ const WebShareFallback = ({ onHide, quote }: Props) => {
         <span className='copy-text'>Or copy</span>
         <div className='link'>
           <div className='pen-url'>{quote}</div>
-          <button className='copy-link' onClick={() => copyTextToClipboard(quote) }>Copy</button>
+          <button className='copy-link' onClick={ copyToClipboard } dangerouslySetInnerHTML={{__html: isCopied ? 'Copied &#10003;' : 'Copy' }}></button>
         </div>
       </div>
     </div>
